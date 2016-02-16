@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   var others, //定义其他样式
       dir     = 'project', //定义根目录
       fs      = require('fs'), //加载文件系统模块
-      exclude = /^(QHB|locks|hooks|db|conf|2d|web-3d3d|web-3D|.svn|plugins|public|node_modules|static|.git|documents|gxws-icbc|LezMessage|manage-let-join|manage-meteorology|php|p-lezpay|p-papa-go|p-users|test1|uidemo|web-cellphone-charge|web-gd-myaccount|web-meteorology|web-papa-go|web-qiaqia|web-qimeng|web-users|www|web-greenery)$/i, //排除目录
+      exclude = /^(.svn|plugins|public|node_modules|static|.git|documents|gxws-icbc|LezCashier|LezMessage|manage-let-join|manage-meteorology|php|p-lezpay|p-papa-go|p-users|test1|uidemo|web-cellphone-charge|web-gd-myaccount|web-meteorology|web-papa-go|web-qiaqia|web-qimeng|web-tvbh|web-users|web-vod-gear|www|web-greenery)$/i, //排除目录
       pros    = [],
       watch   = { //监控Gruntfile.js,项目目录下config.js文件,如有改动则重载Gruntfile.js配置文件
         configFiles: {
