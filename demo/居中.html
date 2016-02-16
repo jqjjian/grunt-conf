@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- begin html -->
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- begin head -->
+<head>
+<title> basic </title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="author" content="xiek" />
+<meta name="keywords" content="xiek" />
+<meta name="description" content="xiek" />
+
+<!-- begin mobile -->
+<!--
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+-->
+<!-- end mobile -->
+
+<!-- begin style -->
+<link rel="stylesheet" type="text/css" href="http://xiewulong.qiniudn.com/public/css/public.css" />
+<style type="text/css">
+.box{width:840px;height:300px;margin:10px auto;background:#ddd;border:1px solid #000;}
+.box ul{overflow:hidden;margin:0 auto;width:800px;}
+.box li{float:left;height:300px;width:198px;border-left:1px solid #000;}
+.box li.last{border-right:1px solid #000;}
+.box li p{width:100px;margin:20px auto 30px;}
+.box li a{display:block;margin:20px auto;width:20px;}
+</style>
+<!-- end style -->
+
+</head>
+<!-- end head -->
+
+<!-- begin body -->
+<body>
+<div class="box">
+	<ul class="J_k_test">
+		<li>
+			<p>这是一段测试文字</p>
+			<a href="javascript:;">test</a>
+			<a href="javascript:;">test</a>
+			<a href="javascript:;">test</a>
+			<a href="javascript:;">test</a>
+		</li>
+		<li>
+			<p>这是一段测试文字</p>
+			<a href="javascript:;">test</a>
+			<a href="javascript:;">test</a>
+			<a href="javascript:;">test</a>
+			<a href="javascript:;">test</a>
+		</li>
+		<!-- <li>
+			<p>这是一段测试文字</p>
+			<a href="javascript:;">test</a>
+			<a href="javascript:;">test</a>
+			<a href="javascript:;">test</a>
+			<a href="javascript:;">test</a>
+		</li> -->
+		<li class="last">
+			<p>这是一段测试文字</p>
+			<a href="javascript:;">test</a>
+			<a href="javascript:;">test</a>
+			<a href="javascript:;">test</a>
+			<a href="javascript:;">test</a>
+		</li>
+	</ul>
+</div>
+<!-- begin javascript -->
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+var	$ul	=	$('.J_k_test');
+$ul.width($ul.find('li').length*200);
+</script>
+<!-- end javascript -->
+
+</body>
+<!-- end body -->
+
+</html>
+<!-- end html -->

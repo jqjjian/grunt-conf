@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- begin html -->
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- begin head -->
+<head>
+<title> basic </title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="author" content="xiek" />
+<meta name="keywords" content="xiek" />
+<meta name="description" content="xiek" />
+
+<!-- begin mobile -->
+<!--
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+-->
+<!-- end mobile -->
+
+<!-- begin style -->
+<link rel="stylesheet" type="text/css" href="http://xiewulong.qiniudn.com/public/css/public.css" />
+<style type="text/css">
+body{position:relative;}
+.box{width:50px;height:50px;background:#ddd;font-size:14px;text-align:center;line-height:25px;font-family:"幼圆";position:fixed;cursor:pointer;bottom:50px;right:50px;}
+.test{height:3000px;}
+</style>
+<!-- end style -->
+
+</head>
+<!-- end head -->
+
+<!-- begin body -->
+<body>
+<div class="test">
+	这是一段测试的文字。
+</div>
+<div class="box J_k_box">
+	回到顶部
+</div>
+<!-- begin javascript -->
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+dingbu	=	function(){
+	var		$box	=	$('.J_k_box');
+	$box.on('click',function(){
+		$('html,body').animate({scrollTop:'0'},600);
+	})
+	function isTop(){
+		var	scrollTop =	($('html').scrollTop() || $('body').scrollTop());
+		scrollTop>$('html').get(0).clientHeight/2?$box.show():$box.hide();
+	}
+	isTop();
+	$(document).scroll(isTop);
+}
+dingbu();
+</script>
+<!-- end javascript -->
+
+</body>
+<!-- end body -->
+
+</html>
+<!-- end html -->

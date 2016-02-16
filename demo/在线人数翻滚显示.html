@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- begin html -->
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- begin head -->
+<head>
+<title> basic </title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="author" content="xiek" />
+<meta name="keywords" content="xiek" />
+<meta name="description" content="xiek" />
+
+<!-- begin mobile -->
+<!--
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+-->
+<!-- end mobile -->
+
+<!-- begin style -->
+<link rel="stylesheet" type="text/css" href="http://xiewulong.qiniudn.com/public/css/public.css" />
+<style type="text/css">
+.box{width:128px;height:22px;margin:50px auto 0;border:1px solid #000;}
+.num{background:url(http://static.wenku.bdimg.com/static/core/index/images/bg_doc_num_c5c38b9e.png) -33px 1px;width:14px;height:20px;border:1px solid #000;float:left;}
+input{margin:30px auto 0;display:block;height:20px;}
+</style>
+<!-- end style -->
+
+</head>
+<!-- end head -->
+
+<!-- begin body -->
+<body>
+<div class="box J_k_box">
+	<span data-num=3 class="num"></span>
+	<span data-num=8 class="num"></span>
+	<span data-num=4 class="num"></span>
+	<span data-num=2 class="num"></span>
+	<span data-num=1 class="num"></span>
+	<span data-num=6 class="num"></span>
+	<span data-num=9 class="num"></span>
+	<span data-num=0 class="num"></span>
+</div>
+<input type="text" value="00000000"/>
+<!-- begin javascript -->
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="http://10.1.15.50:7002/p-lezpay/js/base.mod.js"></script>
+<script type="text/javascript">
+var	num	=	$('.J_k_box').find('span'),
+	t	=	0,
+	d	=	1000,
+	Tween = {
+ Linear: function(t,b,c,d){ return c*t/d + b; },
+    Quad: {
+        easeIn: function(t,b,c,d){
+            return c*(t/=d)*t + b;
+        },
+        easeOut: function(t,b,c,d){
+            return -c *(t/=d)*(t-2) + b;
+        },
+        easeInOut: function(t,b,c,d){
+            if ((t/=d/2) < 1) return c/2*t*t + b;
+            return -c/2 * ((--t)*(t-2) - 1) + b;
+        }
+    }
+};
+
+function run(c,i,b){
+	var	b=(b?b:0);
+	console.log('t:'+t+' b:'+b+' c:'+c+' d:'+d);
+	move	=	Math.ceil(Tween.Quad.easeOut(t,b,c,d));
+	num.eq(i).css('background-position','-33px -'+(move-2) + "px");
+	t++;
+	if(t<d){
+		setTimeout("run(" + c + "," + i + "," + b + ")",10);
+	}
+}
+
+function ajax(){
+	WS.base.ajaxgo('javascript:;',function(data){
+		per(data.data.person);
+		t=0;
+		round2();
+	},{"status":"1","message":".","data":{"person":$('input').val()}});
+	setTimeout(ajax,10000);
+}
+
+function per(pnum){
+	for(var i=0; i<num.length; i++){
+		num.eq(i).attr('data-num',pnum.substring(i,i+1));
+	}
+}
+function round(){
+	for(var i=0; i<num.length; i++){
+		run(num.eq(i).attr('data-num')*24,i);
+	}
+}
+function round2(){
+	for(var i=0; i<num.length; i++){
+		var	b	=	parseInt(num.eq(i).css('background-position').split(' ')[1]);
+		//alert(b);
+		run(num.eq(i).attr('data-num')*24+b,i,-b);
+	}
+}
+
+ajax();
+round();
+</script>
+<!-- end javascript -->
+
+</body>
+<!-- end body -->
+
+</html>
+<!-- end html -->

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- begin html -->
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- begin head -->
+<head>
+<title> basic </title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="author" content="xiek" />
+<meta name="keywords" content="xiek" />
+<meta name="description" content="xiek" />
+
+<!-- begin mobile -->
+<!--
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+-->
+<!-- end mobile -->
+
+<!-- begin style -->
+<link rel="stylesheet" type="text/css" href="http://xiewulong.qiniudn.com/public/css/public.css" />
+<style type="text/css">
+.box{width:204px;height:18px;margin:100px auto 0;position:relative;overflow:hidden;}
+.box .jindukuang{width:200px;height:14px;position:absolute;border:2px solid #bfbfbf;border-radius:8px;}
+.box .jindu{height:14px;width:100px;background:#fbe5ef;position:absolute;border:2px solid #bf1e3c;border-right:none;border-top-left-radius:8px;border-bottom-left-radius:8px;min-width:8px;max-width:192px;}
+.box .jindumax{max-width:200px;border-right:2px solid #bf1e3c;border-radius:8px;}
+.box .num{position:absolute;font-size:14px;height:14px;line-height:12px;top:3px;left:85px;color:#bf1e3c;font-weight:bold;}
+input{margin:20px auto 0;display:block;height:20px;border:1px solid #888;}
+button{display:block;margin:30px auto 0;}
+</style>
+<!-- end style -->
+
+</head>
+<!-- end head -->
+
+<!-- begin body -->
+<body>
+<div class="box J_box">
+	<div class="jindukuang"></div>
+	<div class="jindu J_jindu"></div>
+	<div class="num J_num"><span>48.3</span>%</div>
+</div>
+<input type="text" value=""/>
+<button>test</button>
+
+
+<!-- begin javascript -->
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+yundong	=	function(){
+	var $jindu	=	$('.J_jindu').width(),
+		$box	=	$('.J_box').width(),
+		value	=	$('.J_num').find('span').text();
+	if(value <= 0){$('.J_jindu').hide();}
+	else{$('.J_jindu').show();}
+	if(value >= 100){$('.J_jindu').addClass('jindumax');}
+	else{$('.J_jindu').removeClass('jindumax');}
+	$('.J_jindu').width($box/100*$('.J_num').find('span').text());
+}
+yundong();
+
+$('button').on('click',function(){
+	$('.J_num').find('span').text($('input').val());
+	yundong();
+})
+
+</script>
+<!-- end javascript -->
+
+</body>
+<!-- end body -->
+
+</html>
+<!-- end html -->
